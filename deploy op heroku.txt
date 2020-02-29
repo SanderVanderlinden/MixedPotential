@@ -1,0 +1,4 @@
+C:\Users\Sander\Documents\Anders\Technovate2020\SanderVanderlindenChatApp-master\SanderVanderlindenChatApp-master\out\artifacts\SanderVanderlindenChatApp_master_war>heroku war:deploy SanderVanderlindenChatApp-master_war.war --app mixed-potential
+Uploading SanderVanderlindenChatApp-master_war.war
+
+https://mixed-potential.herokuapp.com/

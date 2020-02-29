@@ -38,7 +38,6 @@ public class Controller extends HttpServlet {
         String action = request.getParameter("action");
         String destination = "index.jsp";
 		RequestHandler handler = null;
-
 		if (action != null) {
         	try {
         		handler = controllerFactory.getController(action, model);

@@ -123,14 +123,6 @@ nav ul li {
     font-size: 100%;
 }
 
-#actual{
-    padding: 3px;
-    background-color: #ea2225;
-    border: #000000;
-    border-style:solid;
-}
-
-
 nav ul li:first-child {
     margin-right: 40px;
 }
@@ -149,6 +141,18 @@ nav ul li a .actuala{
 
 nav ul li #current {
     border-bottom: 1px solid black;
+}
+
+#actual{
+    padding: 8px;
+    color: #ffffff;
+    background-color: #ea2225;
+    border: #ffffff;
+    border-style:solid;
+}
+
+.actuala{
+    color: #ffffff;
 }
 
 .left {}

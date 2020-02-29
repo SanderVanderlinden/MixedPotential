@@ -3,6 +3,7 @@ package domain;
 import db.PersonRepository;
 import db.PersonRepositoryStub;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PersonService {
@@ -31,4 +32,14 @@ public class PersonService {
 		return personRepository;
 	}
 
+    public ArrayList getPersonsMatching(String firstName, String lastName, Gender gender, String geboortedatum, String nationaliteit) {
+        List<Person> people = getPersons();
+        ArrayList<Person> peopleOut = new ArrayList<Person>();
+        for(Person person : people){
+            if (person.matches(firstName, lastName, gender, geboortedatum, nationaliteit)){
+                peopleOut.add(person);
+            }
+        }
+	    return peopleOut;
+    }
 }

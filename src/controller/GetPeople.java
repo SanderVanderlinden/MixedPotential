@@ -26,7 +26,8 @@ public class GetPeople extends RequestHandler {
         if(people.size() > 0){
             json.append("\":{");
             for(Person p : people){
-                json.append("\"firstName\":\"" + p.getFirstName() + "\"");
+                json.append("\"" + p.getFirstName() + "\":");
+                json.append("{\"firstName\":\"" + p.getFirstName() + "\"");
                 json.append(",\"lastName\":\"" + p.getLastName() + "\"");
                 json.append(",\"gender\":\"" + p.getGender() + "\"");
                 json.append(",\"geboortedatum\":\"" + p.getGeboortedatum() + "\"");
@@ -37,7 +38,7 @@ public class GetPeople extends RequestHandler {
             }
             json.deleteCharAt(json.length()-1);
 
-            json.append(" }");
+            json.append(" }}");
         }else{
             json.append("\" : \"\"}");
         }

@@ -19,8 +19,16 @@ public class Person {
 		setGender(gender);
 	}
 
+    public Person(String firstName, String lastName, Gender gender, String geboortedatum, String nationaliteit) {
+        this(firstName, lastName, gender);
+        setGeboortedatum(geboortedatum);
+        setNationaliteit(nationaliteit);
+    }
+
 	public Person() {
 	}
+
+
 
     public Gender getGender() {
         return this.gender;
@@ -127,7 +135,25 @@ public class Person {
 
 	@Override
 	public String toString() {
-		return (firstName + " " + lastName + " " + gender);
+		return (firstName + " " + lastName + " " + gender + " " + geboortedatum + " " + nationaliteit);
 	}
 
+    public boolean matches(String firstName, String lastName, Gender gender, String geboortedatum, String nationaliteit) {
+        if(firstName != null && !firstName.equals(this.getFirstName().toLowerCase())){
+            return false;
+        }
+        if(lastName != null && !lastName.equals(this.getLastName().toLowerCase())){
+            return false;
+        }
+        if(gender != null && !gender.equals(this.gender)){
+            return false;
+        }
+        if(geboortedatum != null && !geboortedatum.equals(this.getGeboortedatum())){
+            return false;
+        }
+        if(nationaliteit != null && !nationaliteit.equals(this.getNationaliteit().toLowerCase())){
+            return false;
+        }
+        return true;
+    }
 }

@@ -19,20 +19,44 @@
 				</div>
 			</c:if>
 			<form method="post" action="Controller?action=SendForm">
+				<p><strong>Velden met een * zijn verplicht</strong></p>
 				<p>
-					<label for="firstName">First name</label>
+					<label for="firstName">Voornaam*</label>
 					<input type="text" id="firstName" name="firstName" placeholder="First name">
 				</p>
 				<p>
-					<label for="lastName">Last name</label>
+					<label for="lastName">Familienaam*</label>
 					<input type="text" id="lastName" name="lastName" placeholder="Last name">
 				</p>
 				<p>
-					<label for="gender">Gender</label>
+					<label for="gender">Geslacht*</label>
 					<select id="gender" name="gender">
-						<option name="male">Male</option>
-						<option name="female">Female</option>
-						<option name="other">Other</option>
+						<option name="male">Man</option>
+						<option name="female">Vrouw</option>
+						<option name="other">Anders</option>
+					</select>
+				</p>
+				<p>
+					<label for="geboortedatum">Geboortedatum*</label>
+					<input type="date" id="geboortedatum" name="geboortedatum">
+				</p>
+				<p>
+					<label for="geboorteplaats">Geboorteplaats</label>
+					<input type="text" id="geboorteplaats" name="geboorteplaats" placeholder="Geboorteplaats">
+				</p>
+				<p>
+					<label for="nationaliteit">Nationaliteit</label>
+					<input type="text" id="nationaliteit" name="nationaliteit" placeholder="Belg">
+				</p>
+				<p>
+					<label for="identiteitskaartnummer">Identiteitskaartnummer</label>
+					<input type="text" id="identiteitskaartnummer" name="identiteitskaartnummer" placeholder="000-0000000-00">
+				</p>
+				<p>
+					<label for="permission">Rode Kruis Vlaanderen mag deze info openbaar maken voor 7 dagen, zodat anderen kunnen zien dat ik veilig ben*</label>
+					<select id="permission" name="permission">
+						<option name="ja">Ja</option>
+						<option name="nee">Nee</option>
 					</select>
 				</p>
 				<p>

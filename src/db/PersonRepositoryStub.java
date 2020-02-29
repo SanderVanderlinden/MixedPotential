@@ -13,7 +13,7 @@ public class PersonRepositoryStub implements PersonRepository {
 	private Map<String, Person> persons = new HashMap<String, Person>();
 	
 	public PersonRepositoryStub () {
-		Person test = new Person("test", "test", Gender.OTHER, Role.NABESTAANDE);
+		Person test = new Person("test", "test", Gender.OTHER);
 		add(test);
 	}
 	

@@ -17,6 +17,11 @@ public class SendForm extends RequestHandler {
         setFirstName(person, request, errors);
         setLastName(person, request, errors);
         setGender(person, request, errors);
+        setGeboortedatum(person, request, errors);
+        person.setGeboorteplaats(request.getParameter("geboorteplaats"));
+        person.setNationaliteit(request.getParameter("nationaliteit"));
+        person.setIdentiteitskaartnummer(request.getParameter("identiteitskaartnummer"));
+        setPermission(person, request, errors);
         person.setRole(Role.SLACHTOFFER);
 
 
@@ -59,7 +64,6 @@ public class SendForm extends RequestHandler {
     private void setGender(Person person, HttpServletRequest request, List<String> errors){
         String genderString = request.getParameter("gender");
         Gender gender = Gender.OTHER;
-        System.out.println(genderString);
         if (genderString.equals("Male")){
             gender = Gender.MALE;
         }
@@ -75,4 +79,29 @@ public class SendForm extends RequestHandler {
             errors.add(e.getMessage());
         }
     }
+
+    private void setGeboortedatum(Person person, HttpServletRequest request, List<String> errors) {
+        String geboortedatum = request.getParameter("geboortedatum");
+        try{
+            person.setGeboortedatum(geboortedatum);
+            request.setAttribute("previousGeboortedatum", geboortedatum);
+        }catch(Exception e){
+            errors.add(e.getMessage());
+        }
+    }
+
+    private void setPermission(Person person, HttpServletRequest request, List<String> errors) {
+        String permissionString = request.getParameter("permission");
+        Boolean permission = false;
+        if (permissionString.equals("Ja")){
+            permission = true;
+        }
+        try{
+            person.setPermission(permission);
+            request.setAttribute("previousPermission", permission);
+        }catch(Exception e){
+            errors.add(e.getMessage());
+        }
+    }
+
 }

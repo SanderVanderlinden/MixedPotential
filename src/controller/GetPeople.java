@@ -8,15 +8,15 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 
-public class GetPeople extends AsyncronousRequestHandler {
+public class GetPeople extends RequestHandler {
 
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws JsonProcessingException {
         ArrayList<Person> people = (ArrayList<Person>) getPersonService().getPersons();
         String peopleJSON = this.toJSON("people", people);
         response.setContentType("application/json");
-        System.out.println(peopleJSON);
-        return peopleJSON;
+        request.setAttribute("people", peopleJSON);
+        return "alledata.jsp";
     }
 
     private String toJSON(String key, ArrayList<Person> people) {
@@ -24,13 +24,20 @@ public class GetPeople extends AsyncronousRequestHandler {
         json.append("{ \"");
         json.append(key);
         if(people.size() > 0){
-            json.append("\" : [");
+            json.append("\":{");
             for(Person p : people){
-                json.append("{\"firstName\":\""+ p.getFirstName() + "\",\"lastName\":\"" + p.getLastName() + "\",\"gender\":\""+p.getGender()+ "\"},");
+                json.append("\"firstName\":\"" + p.getFirstName() + "\"");
+                json.append(",\"lastName\":\"" + p.getLastName() + "\"");
+                json.append(",\"gender\":\"" + p.getGender() + "\"");
+                json.append(",\"geboortedatum\":\"" + p.getGeboortedatum() + "\"");
+                json.append(",\"nationaliteit\":\"" + p.getGeboorteplaats() + "\"");
+                json.append(",\"identiteitskaartnummer\":\"" + p.getIdentiteitskaartnummer() + "\"");
+                json.append(",\"permission\":\"" + p.getPermission() + "\"");
+                json.append(",\"role\":\"" + p.getRole()+ "\"},");
             }
             json.deleteCharAt(json.length()-1);
 
-            json.append("] }");
+            json.append(" }");
         }else{
             json.append("\" : \"\"}");
         }

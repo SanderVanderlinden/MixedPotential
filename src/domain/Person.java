@@ -6,13 +6,17 @@ public class Person {
 	private String lastName;
 	private Gender gender;
 	private Role role;
+    private String geboortedatum;
+    private String geboorteplaats;
+    private String nationaliteit;
+    private String identiteitskaartnummer;
+    private Boolean permission;
 
 
-    public Person(String firstName, String lastName, Gender gender, Role role) {
+    public Person(String firstName, String lastName, Gender gender) {
 		setFirstName(firstName);
 		setLastName(lastName);
 		setGender(gender);
-		setRole(role);
 	}
 
 	public Person() {
@@ -40,7 +44,7 @@ public class Person {
 
 	public void setFirstName(String firstName) {
 		if (firstName.isEmpty()) {
-			throw new IllegalArgumentException("No firstname given");
+			throw new IllegalArgumentException("Geef voornaam op");
 		}
 		this.firstName = firstName;
 	}
@@ -51,11 +55,52 @@ public class Person {
 
 	public void setLastName(String lastName) {
 		if (lastName.isEmpty()) {
-			throw new IllegalArgumentException("No last name given");
+			throw new IllegalArgumentException("Geef familienaam op");
 		}
 		this.lastName = lastName;
 	}
+	
+    public String getGeboortedatum() {
+        return geboortedatum;
+    }
 
+    public void setGeboortedatum(String geboortedatum) {
+        if (geboortedatum.isEmpty()) {
+            throw new IllegalArgumentException("Geef geboortedatum op");
+        }
+        this.geboortedatum = geboortedatum;
+    }
+    
+    public String getGeboorteplaats() {
+        return geboorteplaats;
+    }
+
+    public void setGeboorteplaats(String geboorteplaats) {
+        this.geboorteplaats = geboorteplaats;
+    }
+    
+    public String getNationaliteit() {
+        return nationaliteit;
+    }
+
+
+    public void setNationaliteit(String nationaliteit) {
+        this.nationaliteit = nationaliteit;
+    }
+
+    public String getIdentiteitskaartnummer() {
+        return identiteitskaartnummer;
+    }
+
+    public void setIdentiteitskaartnummer(String identiteitskaartnummer) {
+        this.identiteitskaartnummer = identiteitskaartnummer;
+    }
+
+    public Boolean getPermission(){return permission;}
+
+    public void setPermission(Boolean permission) {
+        this.permission = permission;
+    }
 
     @Override
     public boolean equals(Object o) {

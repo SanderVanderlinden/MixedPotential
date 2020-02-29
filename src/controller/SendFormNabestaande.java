@@ -60,7 +60,6 @@ public class SendFormNabestaande extends RequestHandler {
     private void setGender(Person person, HttpServletRequest request, List<String> errors){
         String genderString = request.getParameter("gender");
         Gender gender = Gender.OTHER;
-        System.out.println(genderString);
         if (genderString.equals("Male")){
             gender = Gender.MALE;
         }

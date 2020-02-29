@@ -25,8 +25,16 @@ public class Person {
         setNationaliteit(nationaliteit);
     }
 
+    public Person(String firstName, String lastName, Gender gender, String geboortedatum, String nationaliteit, Role role, boolean permission) {
+        this(firstName, lastName, gender, geboortedatum, nationaliteit);
+        setRole(role);
+        setPermission(permission);
+    }
+
 	public Person() {
+        setPermission(false);
 	}
+
 
 
 
@@ -139,6 +147,12 @@ public class Person {
 	}
 
     public boolean matches(String firstName, String lastName, Gender gender, String geboortedatum, String nationaliteit) {
+        if (!getRole().equals(Role.SLACHTOFFER)){
+            return false;
+        }
+        if (!getPermission()){
+            return false;
+        }
         if(firstName != null && !firstName.equals(this.getFirstName().toLowerCase())){
             return false;
         }

@@ -10,7 +10,7 @@ public class Mensen extends RequestHandler {
 	public String handleRequest(HttpServletRequest request,
                                 HttpServletResponse response) {
 
-		List people = getPersonService().getPersons();
+        List people = getPersonService().getPersonsMatching(null, null, null, null, null);
 		request.setAttribute("people", people);
 		return "mensen.jsp";
 	}

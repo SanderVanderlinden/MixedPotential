@@ -29,7 +29,6 @@
                     <li><a href="Controller?action=Mensen">Mensen</a></li>
                 </c:otherwise>
             </c:choose>
-             <li><a href="/images/Mixed Potential.pdf">Mixed Potential</a></li>
         </ul>
     </nav>
     <h2>

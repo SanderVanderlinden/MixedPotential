@@ -28,6 +28,9 @@ public class SendForm extends RequestHandler {
         if (errors.size() < 1){
             try {
                 this.getPersonService().addPerson(person);
+                if (request.getParameter("permission").equals("Ja")){
+                    return "uploadPhoto.jsp";
+                }
                 return "index.jsp";
             }catch(Exception e){
                 errors.add(e.getMessage());
@@ -64,11 +67,11 @@ public class SendForm extends RequestHandler {
     private void setGender(Person person, HttpServletRequest request, List<String> errors){
         String genderString = request.getParameter("gender");
         Gender gender = Gender.OTHER;
-        if (genderString.equals("Male")){
+        if (genderString.equals("Man")){
             gender = Gender.MALE;
         }
         else {
-            if (genderString.equals("Female")){
+            if (genderString.equals("Vrouw")){
                 gender = Gender.FEMALE;
             }
         }

@@ -13,20 +13,20 @@
                     <li><a href="Controller">Slachtoffer</a></li>
                 </c:otherwise>
             </c:choose>
-            <c:choose>
+            <!--<c:choose>
                 <c:when test="${param.title=='Registreer nabestaande'}">
                     <li id="actual"><a class="actuala" href="Controller?action=Nabestaande">Nabestaande</a></li>
                 </c:when>
                 <c:otherwise>
                     <li><a href="Controller?action=Nabestaande">Nabestaande</a></li>
                 </c:otherwise>
-            </c:choose>
+            </c:choose>-->
             <c:choose>
-                <c:when test="${param.title=='Mensen'}">
-                    <li id="actual"><a class="actuala" href="Controller?action=Mensen">Mensen</a></li>
+                <c:when test="${param.title=='Vind een persoon'}">
+                    <li id="actual"><a class="actuala" href="Controller?action=Mensen">Vind een persoon</a></li>
                 </c:when>
                 <c:otherwise>
-                    <li><a href="Controller?action=Mensen">Mensen</a></li>
+                    <li><a href="Controller?action=Mensen">Vind een persoon</a></li>
                 </c:otherwise>
             </c:choose>
         </ul>

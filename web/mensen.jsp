@@ -2,14 +2,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <jsp:include page="head.jsp">
-	<jsp:param name="title" value="Mensen" />
+	<jsp:param name="title" value="Vind een persoon" />
 </jsp:include>
 	<body>
 		<jsp:include page="header.jsp">
-			<jsp:param name="title" value="Mensen" />
+			<jsp:param name="title" value="Vind een persoon" />
 		</jsp:include>
 		<main>
-            <h3>People</h3>
+            <h3>Vind de juiste persoon!</h3>
             <div>
                 <form method="post" action="Controller?action=MensenFiltered">
                     <p><strong>Zoek mensen, vul enkel velden in die je zeker weet!</strong></p>
@@ -43,7 +43,12 @@
                     </p>
                 </form>
             </div>
-            <h3>People</h3>
+            <h3>Of upload een foto van de persoon die je zoekt:</h3>
+            <form action="Controller?action=uploadSearch" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" />
+                <input type="submit" value="upload" />
+            </form>
+            <h3>Personen</h3>
 			<div id="people">
                 <table>
                     <tr>
@@ -66,7 +71,7 @@
             </div>
 		</main
 		<jsp:include page="footer.jsp">
-			<jsp:param name="title" value="Mensen" />
+			<jsp:param name="title" value="Vind een persoon" />
 		</jsp:include>
 	</body>
 </html>
